@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+    <title>Title</title>
+</head>
+<body style="background-color: #F1F1F1">
+<div class="container" align="center">
+    <div class="row" style="height: 60px">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xl-12">
+            <div th:if="${error}">
+                <div class="error"><p th:text="${error}"/></div>
+            </div>
+            <div th:if="${msg}">
+                <div class="msg"><p th:text="${msg}"/></div>
+            </div>
+        </div>
+    </div>
+    <form name="loginForm" th:action="@{/login}" method="post">
+        <div class="form-group col-3">
+            <h3 align="left">Please sign in</h3>
+            <input class="form-control" type='text' name='username' placeholder="Login">
+            <input class="form-control" type='password' name='password' placeholder="Password"/>
+        </div>
+        <div class="form-group col-3">
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.3.1-2/jquery.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+</head>
+<body style="background-color: #F1F1F1">
+<div class="row">
+    <div class="col-xl-12">
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" th:href="@{/login}" style="color: #ADADAD">Project name</a>
+            <a th:href="@{/logout}" style="color: #ADADAD">Logout</a>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div th:if="${#request.isUserInRole(role_admin)}" class="col-xl-2"
+         style="background-color: #F7F7F7; padding-right: 0">
+        <ul class="nav flex-column" style="padding-top: 20px">
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin}">Admin</a></li>
+            <li class="nav-item"><a class="nav-link active" th:href="@{/user}"
+                                    style="background-color: #519ED4; color: white">User</a></li>
+
+        </ul>
+    </div>
+
+    <div class="col-xl-10">
+        <div class="container" style="padding-top: 20px">
+            <h2>
+                Welcome : <strong th:utext="${#request.userPrincipal.name}"></strong>
+            </h2>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.3.1-2/jquery.min.js}"></script>
+</body>
+</html>
